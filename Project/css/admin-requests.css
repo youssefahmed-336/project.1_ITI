@@ -1,0 +1,101 @@
+﻿.order-card {
+  width: fit-content;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.order-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.2rem;
+}
+
+.order-header h5 {
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.customer-section-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-left: 5px solid #764ba2;
+}
+
+.item-row {
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+
+.item-row:hover {
+  background: #f8f9fa;
+}
+
+.item-img {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f0f0f0;
+}
+
+.item-row:last-child {
+  border-bottom: none !important;
+}
+
+.price-tag {
+  background: #e7f3ff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.qty-badge {
+  background: #fff3e0;
+  color: #e65100;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.order-footer {
+  border-top: 2px solid #e8ecf1;
+  background: #fafbfc;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+.orders-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.order-card {
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .order-card {
+    flex: 1 1 100%;
+  }
+}
+

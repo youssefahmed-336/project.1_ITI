@@ -1,0 +1,64 @@
+﻿
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - E-Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/toast.css">
+</head>
+
+<body>
+    <div class="main-container">
+        
+        <div class="register-box">
+            <h2 class="text-center mb-4">Register</h2>
+
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" id="reg-user" class="form-control" placeholder="Choose a username">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" id="reg-email" class="form-control" placeholder="Enter your email">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" id="reg-pass" class="form-control" placeholder="Choose a password">
+                
+                <ul id="pass-rules" class="mt-2 d-none">
+                    <li id="rule-lower" class="text-danger">At least one lowercase letter is required.</li>
+                    <li id="rule-upper" class="text-danger">A capital Upper letter is required.</li>
+                    <li id="rule-digit" class="text-danger">A digit is required.</li>
+                    <li id="rule-length" class="text-danger">Minimum 8 letters are required.</li>
+                </ul>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" id="reg-pass2" class="form-control" placeholder="Confirm your password">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    <img id="captcha-image" onclick="reloadCaptcha()" 
+                         style="width: 200px; height: 100px; cursor:pointer;" 
+                         src="" alt="Captcha">
+                </label>
+                <input type="text" id="captcha-input" class="form-control" placeholder="Enter captcha result">
+            </div>
+
+            <button class="btn btn-primary w-100" onclick="register()">Sign Up</button>
+
+            <p class="text-center mt-3">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+        </div> </div> <script type="module" src="js/toast.js"></script>
+    <script type="module" src="js/register.js"></script>
+
+</body>
+</html>
+

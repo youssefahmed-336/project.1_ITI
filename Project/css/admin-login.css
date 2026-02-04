@@ -1,0 +1,30 @@
+ body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      color: #667eea;
+      padding-bottom: 10px;
+
+    }
+
+    .login-box {
+
+      max-width: 400px;
+
+      margin: auto;
+      padding: 60px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 20px 20px  rgba(18, 12, 43, 0.2);
+    }
+
+
+    ::placeholder {
+      color: #aaa;
+      font-weight: 300;
+      opacity: 1;
+    }

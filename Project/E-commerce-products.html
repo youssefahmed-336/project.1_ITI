@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products - E-Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/toast.js"></script>
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fraunces:opsz,wght@9..144,600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/products.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="E-commerce-products.html">E-Shop</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="E-commerce-products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="cart-nav" href="cart.html">Cart (0)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wishlist.html">Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="request.html">My Orders</a>
+                    </li>
+                </ul>
+
+                <div class="profile-dropdown">
+                    <div class="profile-icon" onclick="toggleMenu()">
+                        <img id="navProfileImg" src="images/profile.png" alt="User">
+                    </div>
+                    <ul class="dropdown-list" id="dropdownMenu">
+                        <li><a href="Profile.html">Profile</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><button type="button" onclick="logout()">Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+       
+
+       <h2 class="text-center mb-3 bungee-regular">E-Commerce Products</h2>
+
+        <div class="row mb-3 filter-panel">
+            <div class="col-md-4 mb-2">
+                <input type="text" id="searchBox" class="form-control" placeholder="Search products..."
+                    oninput="filterProducts()">
+            </div>
+
+            <div class="col-md-4 mb-2">
+                <select id="categoryFilter" class="form-select" onchange="filterProducts()">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="products-container" class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast align-items-center text-bg-success border-0">
+            <div class="d-flex">
+                <div class="toast-body" id="toast-msg">Done</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Product Feedback</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-3">
+                            <img id="modalProductImage" src="" alt="Product" class="img-fluid"
+                                style="max-height: 150px; object-fit: contain;">
+                        </div>
+                        <div class="col-md-9">
+                            <h6 id="modalProductTitle"></h6>
+                            <p class="text-muted" id="modalProductPrice"></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6>Customer Feedback</h6>
+                    <div id="feedbackList" style="max-height: 400px; overflow-y: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/nav-profile.js"></script>
+    <script src="js/E-commerce-products.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,126 @@
+﻿.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 18px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow);
+    animation: rise 0.6s ease-out both;
+}
+
+.request-card {
+    margin-bottom: 20px;
+}
+
+.item-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 8px;
+    padding: 3px;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+}
+
+.status-badge {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+}
+
+.order-card {
+    background: var(--card);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+}
+
+.order-header {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.02));
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.order-summary {
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #f9fafb;
+}
+
+.badge {
+    border-radius: 999px;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+}
+
+.alert {
+    border-radius: 14px;
+    border: 1px dashed rgba(15, 23, 42, 0.15);
+    background: #ffffff;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 6px;
+    font-size: 28px;
+    color: #d1d5db;
+    cursor: pointer;
+    user-select: none;
+}
+
+.rating-star.active {
+    color: #f59e0b;
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.btn-outline-light:hover {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+.price-pill {
+    background: rgba(47, 143, 157, 0.16);
+    color: #0f5560;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.status-badge.bg-warning {
+    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    color: #1f2937;
+}
+
+.status-badge.bg-success {
+    background: linear-gradient(135deg, #22c55e, #34d399);
+}
+
+.status-badge.bg-danger {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+}
+
+@keyframes rise {
+    from { transform: translateY(8px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 767px) {
+    .page-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+

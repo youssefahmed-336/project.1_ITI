@@ -1,0 +1,130 @@
+﻿body {
+  background: #f4f7f6;
+}
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+.admin-container {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.category-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.category-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.category-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #333;
+}
+.category-desc {
+  color: #666;
+  font-size: 0.9rem;
+}
+.product-count {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+.add-category-card {
+  border: 3px dashed #000;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 15px;
+}
+
+.add-category-card:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: white;
+}
+
+.add-icon {
+  font-size: 4rem;
+}
+
+.badge-custom {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+.modal-content {
+  border-radius: 20px;
+  border: none;
+}
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.btn-custom {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.modal-footer {
+  padding: 0 0 20px 0;
+  justify-content: center;
+  border: none;
+}
+.btn:hover {
+  color: white;
+}
+.btn-view {
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+#cat-name {
+  font-size: 14px;
+  color: #666;
+}
+

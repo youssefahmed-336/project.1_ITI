@@ -1,0 +1,21 @@
+﻿.card-img-top {
+    height: 150px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+

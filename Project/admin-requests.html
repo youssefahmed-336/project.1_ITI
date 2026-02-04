@@ -1,0 +1,82 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Order Management</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/main-style-admin.css" />
+    <link rel="stylesheet" href="css/admin-requests.css" />
+    <link rel="stylesheet" href="css/toast.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="categories.html">Admin Panel</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html" data-nav="categories"
+                >Categories</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="admin-requests.html"
+                data-nav="orders"
+                >Orders</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admins.html" data-nav="admins"
+                >Admins</a
+              >
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <span class="navbar-text text-white me-3" id="admin-name"></span>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-light btn-sm" onclick="logout()">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="admin-container container my-5">
+      <h2 class="mb-4">Order Management</h2>
+      <div id="requests-container">
+      </div>
+    </div>
+    <div id="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/admin-requests.js"></script>
+    <script src="js/admin-auth.js"></script>
+  </body>
+</html>
+

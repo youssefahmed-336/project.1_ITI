@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Paypal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      #paypal-button-container {
+        margin-top: 20px;
+        max-width: 400px;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .payment-status {
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <div id="paypal-button-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    <script>
+      function getCheckoutTotal() {
+        const checkout = JSON.parse(localStorage.getItem("checkout") || "[]");
+        if (!Array.isArray(checkout) || checkout.length === 0) return 0;
+        return checkout.reduce((sum, item) => {
+          const price = parseFloat(item.price) || 0;
+          const qty = parseInt(item.quantity || 1, 10);
+          return sum + price * qty;
+        }, 0);
+      }
+
+      const totalAmount = getCheckoutTotal();
+
+      if (!totalAmount) {
+        window.location.href = "cart.html";
+      }
+
+      paypal
+        .Buttons({
+          createOrder: function (data, actions) {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: totalAmount.toFixed(2),
+                  },
+                },
+              ],
+            });
+          },
+
+          onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+              alert("Mission Success " + details.payer.name.given_name);
+
+              window.location.href = "request.html";
+            });
+          },
+
+          onError: function (err) {
+            console.error("Error in Payment:", err);
+            alert("Sorry. There are an Error in Payment,Try Again Later");
+          },
+        })
+        .render("#paypal-button-container");
+    </script>
+  </body>
+</html>

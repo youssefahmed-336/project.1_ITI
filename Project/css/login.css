@@ -1,0 +1,121 @@
+ @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@300;500;700&display=swap');
+
+body {
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', 'Cairo', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    z-index: -1;
+}
+body::before { background: #6366f1; top: 10%; left: 15%; filter: blur(100px); }
+body::after { background: #a855f7; bottom: 10%; right: 15%; filter: blur(100px); }
+
+.login-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 45px;
+    border-radius: 25px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+}
+
+h2 {
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 35px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.form-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 12px;
+    padding: 12px 15px;
+    transition: 0.3s all ease;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2) !important;
+}
+
+#captcha-image {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+#captcha-image:hover {
+    transform: scale(1.02);
+}
+
+
+.btn-success {
+    background: rgba(40, 167, 69, 0.2); 
+    border: 1px solid rgba(40, 167, 69, 0.5);
+    color: #fff;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.4s;
+    margin-top: 15px;
+}
+
+.btn-success:hover {
+    background: #28a745;
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.4);
+    transform: translateY(-2px);
+    border-color: #28a745;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+a {
+    color: #a855f7;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #6366f1;
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
