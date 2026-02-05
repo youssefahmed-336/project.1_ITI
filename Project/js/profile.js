@@ -1,4 +1,4 @@
-﻿const USERS_KEY = 'eshop_users';
+const USERS_KEY = 'eshop_users';
 const CURRENT_USER_KEY = 'currentUser';
 const DEFAULT_PHOTO = 'images/profile.png';
 
@@ -179,7 +179,7 @@ function updateEmail() {
     const users = getStoredUsers();
     const currentUser = getCurrentUserRecord(users);
     if (!currentUser) {
-        alert('Please login first');
+       showToast("Please login first", "error");
         return;
     }
 
@@ -188,21 +188,21 @@ function updateEmail() {
     const currentPasswordInput = document.getElementById('emailCurrentPassword');
     const currentPassword = currentPasswordInput ? currentPasswordInput.value : '';
     if (!newEmail) {
-        alert('Please enter a valid email');
+       showToast("Please enter an email", "error");
         return;
     }
     if (!currentPassword) {
-        alert('Please enter your current password');
+      showToast("Please enter your current password", "error");
         return;
     }
     if (currentPassword !== currentUser.password) {
-        alert('Current password is incorrect');
+      showToast("Current password is incorrect", "error");
         return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(newEmail)) {
-        alert('Please enter a valid email format');
+     showToast("Please enter a valid email format", "error");
         return;
     }
 
@@ -210,7 +210,7 @@ function updateEmail() {
         (user) => user.email === newEmail && user.id !== currentUser.id
     );
     if (emailExists) {
-        alert('This email is already used');
+       showToast("this email is already used", "error");
         return;
     }
 
@@ -236,14 +236,14 @@ function updateEmail() {
     if (currentPasswordInput) {
         currentPasswordInput.value = '';
     }
-    alert('Email updated successfully');
+   showToast("Email updated successfully", "success");
 }
 
 function Change() {
     const users = getStoredUsers();
     const currentUser = getCurrentUserRecord(users);
     if (!currentUser) {
-        alert('Please login first');
+       showToast("Please login first", "error");
         return;
     }
 
@@ -252,22 +252,22 @@ function Change() {
     const confirmPassword = document.getElementById('confirmpassword')?.value || '';
 
     if (!currentPassword || !newPassword || !confirmPassword) {
-        alert('Please fill all password fields');
+      showToast("Please fill all password fields", "error");
         return;
     }
 
     if (currentPassword !== currentUser.password) {
-        alert('Current password is incorrect');
+        showToast("Current password is incorrect", "error");
         return;
     }
 
-    if (newPassword.length < 4) {
-        alert('New password must be at least 4 characters');
+    if (newPassword.length < 8) {
+        showToast("New password must be at least 8 characters", "error");
         return;
     }
 
     if (newPassword !== confirmPassword) {
-        alert('Passwords do not match');
+       showToast("Passwords dosen`t match", "error");
         return;
     }
 
@@ -275,6 +275,6 @@ function Change() {
     document.getElementById('currentpassword').value = '';
     document.getElementById('newpassword').value = '';
     document.getElementById('confirmpassword').value = '';
-    alert('Password updated successfully');
+   showToast("Password updated successfully", "success");
 }
 
