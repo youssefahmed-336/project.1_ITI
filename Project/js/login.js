@@ -46,7 +46,7 @@ function login() {
         window.showToast("Login successful", "success");
 
         setTimeout(() => {
-            window.location.href = "../E-commerce-products.html";
+            window.location.href = "./E-commerce-products.html";
         }, 1500);
     } else {
         window.showToast("Invalid credentials", "error");
@@ -58,6 +58,7 @@ document.addEventListener('keypress', function(e) {
 });
 
 window.login = login;
+
 
 
 
