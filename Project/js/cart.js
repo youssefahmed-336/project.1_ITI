@@ -122,12 +122,20 @@ function decreaseQuantity(index) {
 }
 
 function clearCart() {
-    if (confirm('Are you sure you want to clear your cart?')) {
-        localStorage.setItem('carts', '[]');
-        displayCart();
-        updateNav();
-    }
+  document.getElementById("clearCartModal").style.display = "flex";
 }
+
+function closeModal() {
+  document.getElementById("clearCartModal").style.display = "none";
+}
+
+function confirmClearCart() {
+  localStorage.setItem('carts', '[]');
+  displayCart();
+  updateNav();
+  closeModal();
+}
+
 
 function checkout() {
     const cart = JSON.parse(localStorage.getItem('carts') || '[]');
@@ -161,4 +169,5 @@ window.onload = () => {
     displayCart();
     updateNav();
 };
+
 
