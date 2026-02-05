@@ -130,3 +130,70 @@ body {
     color: var(--muted);
 }
 
+.logout-btn {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background: rgba(231, 76, 60, 0.1);
+}
+
+/* ===== Modal ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 22px;
+  width: 300px;
+  border-radius: 14px;
+  text-align: center;
+  animation: scaleFade 0.3s ease;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.cancel-btn {
+  background: #ccc;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background: #c0392b;
+}
+
+@keyframes scaleFade {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
