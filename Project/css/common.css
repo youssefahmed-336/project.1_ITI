@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --ink: #111827;
     --muted: #6b7280;
     --brand: #2f8f9d;
@@ -130,6 +130,29 @@ body {
     color: var(--muted);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .logout-btn {
   color: #e74c3c;
   font-weight: 500;
@@ -139,7 +162,7 @@ body {
   background: rgba(231, 76, 60, 0.1);
 }
 
-.modal {
+#logoutModal {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.45);
@@ -149,7 +172,7 @@ body {
   z-index: 999;
 }
 
-.modal-content {
+#logoutModal .modal-content {
   background: #fff;
   padding: 22px;
   width: 300px;
@@ -158,7 +181,7 @@ body {
   animation: scaleFade 0.3s ease;
 }
 
-.modal-actions {
+#logoutModal .modal-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 18px;
@@ -195,5 +218,8 @@ body {
     transform: scale(1);
   }
 }
+
+
+
 
 
