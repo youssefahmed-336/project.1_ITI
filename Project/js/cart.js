@@ -160,7 +160,7 @@ function checkout() {
     localStorage.setItem('checkout', JSON.stringify(cart));
     showToast('Order placed successfully! Thank you', 'success');
     localStorage.setItem('carts', '[]');
-    setTimeout(() => window.location.href = 'paypal.html', 1500);
+    setTimeout(() => window.location.href = 'Paypal.html', 1500);
 }
 
 window.onload = () => {
@@ -169,5 +169,6 @@ window.onload = () => {
     displayCart();
     updateNav();
 };
+
 
 
