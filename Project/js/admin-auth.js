@@ -1,28 +1,4 @@
-﻿function checkAdminAuth() {
-    const adminUser = localStorage.getItem("adminUser");
-    if (!adminUser) {
-        showToast("Please login as admin first", "error");
-        window.location.href = "admin-login.html";
-        return false;
-    }
-    document.getElementById("admin-name").textContent = `Welcome, ${adminUser}`;
-    return true;
-}
-
-function logout() {
-    Swal.fire({
-  title: "Are you sure?",
-  showCancelButton: true,
-  confirmButtonText: "Yes",
-  cancelButtonText: "No"
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location.href = "admin-login.html";
-
-  }
-});
-
-}
+﻿
 
 let mainAdmin = localStorage.getItem("adminUser");
 window.addEventListener("DOMContentLoaded", function () {

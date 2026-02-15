@@ -1,4 +1,29 @@
-﻿
+﻿function checkAdminAuth() {
+    const adminUser = localStorage.getItem("adminUser");
+    if (!adminUser) {
+        showToast("Please login as admin first", "error");
+        window.location.href = "admin-login.html";
+        return false;
+    }
+    document.getElementById("admin-name").textContent = `Welcome, ${adminUser}`;
+    return true;
+}
+
+function logout() {
+    Swal.fire({
+        title: "Are you sure?",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('adminUser');
+            window.location.href = "admin-login.html";
+
+        }
+    });
+
+}
 function loadProducts() {
     document.getElementById("cat-name").textContent =
         localStorage.getItem("category");
@@ -130,34 +155,34 @@ function editProduct(productId) {
 
 
 function deleteProduct(productId) {
-  
+
     Swal.fire({
-        title:"Are You Sure ?",
-        text :"Are you sure you want to delete this product?",
+        title: "Are You Sure ?",
+        text: "Are you sure you want to delete this product?",
         showCancelButton: true,
-        confirmButtonText :"Yes",
-        cancelButtonText : "No"
-    }).then((result)=>{
-        if(!result.isConfirmed) return;
-        
-    let allProducts = JSON.parse(localStorage.getItem("products") || "[]");
-    const index = allProducts.findIndex(p => p.id === productId);
+        confirmButtonText: "Yes",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (!result.isConfirmed) return;
 
-    if (index === -1) {
-        showToast("Product not found!", "error");
-        return;
-    }
+        let allProducts = JSON.parse(localStorage.getItem("products") || "[]");
+        const index = allProducts.findIndex(p => p.id === productId);
 
-    allProducts.splice(index, 1);
-    localStorage.setItem("products", JSON.stringify(allProducts));
-    loadProducts();
-    showToast("Product deleted successfully!", "success");
+        if (index === -1) {
+            showToast("Product not found!", "error");
+            return;
+        }
+
+        allProducts.splice(index, 1);
+        localStorage.setItem("products", JSON.stringify(allProducts));
+        loadProducts();
+        showToast("Product deleted successfully!", "success");
 
     })
 
 }
 
 window.onload = () => {
-    if (checkAdminAuth()) loadProducts();
+    if (!checkAdminAuth()) return; loadProducts();
 };
 

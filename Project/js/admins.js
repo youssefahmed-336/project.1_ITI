@@ -1,4 +1,30 @@
-﻿function getAllUsers() {
+﻿function checkAdminAuth() {
+    const adminUser = localStorage.getItem("adminUser");
+    if (!adminUser) {
+        showToast("Please login as admin first", "error");
+        window.location.href = "admin-login.html";
+        return false;
+    }
+    document.getElementById("admin-name").textContent = `Welcome, ${adminUser}`;
+    return true;
+}
+
+function logout() {
+    Swal.fire({
+        title: "Are you sure?",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('adminUser');
+             window.location.href = "admin-login.html";
+
+        }
+    });
+
+}
+function getAllUsers() {
     const users = localStorage.getItem('eshop_users');
     return users ? JSON.parse(users) : [];
 }
@@ -116,27 +142,28 @@ function deleteAdmin(adminId) {
         return;
     }
     Swal.fire({
-        title :"Are you sure ?",
+        title: "Are you sure ?",
         text: "Are you sure you want to delete this admin?",
-        showCancelButton :true ,
-        confirmButtonText :"yes",
-        cancelButtonText : "No"
-    }).then((result)=>{
-        if(!result.isConfirmed) return;
+        showCancelButton: true,
+        confirmButtonText: "yes",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (!result.isConfirmed) return;
         const users = getAllUsers();
-    const filteredUsers = users.filter(u => u.id !== adminId);
-    localStorage.setItem('eshop_users', JSON.stringify(filteredUsers));
-    showToast('Admin deleted successfully!', 'error');
-    displayAdmins();
+        const filteredUsers = users.filter(u => u.id !== adminId);
+        localStorage.setItem('eshop_users', JSON.stringify(filteredUsers));
+        showToast('Admin deleted successfully!', 'error');
+        displayAdmins();
 
     })
 
-    
+
 }
 
 
 
 window.onload = function () {
+    if (!checkAdminAuth()) return;
     displayAdmins();
 
 };

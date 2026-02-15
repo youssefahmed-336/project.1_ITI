@@ -1,6 +1,30 @@
+function checkAdminAuth() {
+    const adminUser = localStorage.getItem("adminUser");
+    if (!adminUser) {
+        showToast("Please login as admin first", "error");
+        window.location.href = "admin-login.html";
+        return false;
+    }
+    document.getElementById("admin-name").textContent = `Welcome, ${adminUser}`;
+    return true;
+}
 
+function logout() {
+    Swal.fire({
+        title: "Are you sure?",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('adminUser');
+            window.location.href = "admin-login.html";
+
+        }
+    });
+
+}
 function displayRequests() {
-    if (!checkAdminAuth()) return;
 
     const container = document.getElementById('requests-container');
     container.innerHTML = '';
@@ -113,7 +137,7 @@ function displayRequests() {
 function handleRequest(storageKey, orderIndex, action) {
     Swal.fire({
         title: "Are you sure?",
-        Text : `Are you sure you want to ${action} this order?`,
+        Text: `Are you sure you want to ${action} this order?`,
         showCancelButton: true,
         confirmButtonText: "Yes",
         cancelButtonText: "No"
@@ -121,22 +145,23 @@ function handleRequest(storageKey, orderIndex, action) {
         if (!result.isConfirmed) return;
         const requests = JSON.parse(localStorage.getItem(storageKey) || '[]');
         if (requests[orderIndex]) {
-        requests[orderIndex].status = action;
-        localStorage.setItem(storageKey, JSON.stringify(requests));
-        displayRequests();
-         const message = action === 'accepted' ? 'Order accepted successfully!' : 'Order rejected successfully!';
-        const type = action === "accepted" ? "success" : "error";
-        showToast(message, type);
+            requests[orderIndex].status = action;
+            localStorage.setItem(storageKey, JSON.stringify(requests));
+            displayRequests();
+            const message = action === 'accepted' ? 'Order accepted successfully!' : 'Order rejected successfully!';
+            const type = action === "accepted" ? "success" : "error";
+            showToast(message, type);
 
         }
 
 
 
-        
+
     });
-   
+
 }
 
 window.onload = function () {
+    if (!checkAdminAuth()) return;
     displayRequests();
 };

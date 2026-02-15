@@ -1,4 +1,29 @@
-﻿
+﻿function checkAdminAuth() {
+    const adminUser = localStorage.getItem("adminUser");
+    if (!adminUser) {
+        showToast("Please login as admin first", "error");
+        window.location.href = "admin-login.html";
+        return false;
+    }
+    document.getElementById("admin-name").textContent = `Welcome, ${adminUser}`;
+    return true;
+}
+
+function logout() {
+    Swal.fire({
+        title: "Are you sure?",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('adminUser');
+            window.location.href = "admin-login.html";
+
+        }
+    });
+
+}
 function loadCategories() {
     let savedCategories = JSON.parse(localStorage.getItem('categories') || '[]');
     const products = JSON.parse(localStorage.getItem('products') || '[]');
@@ -166,7 +191,7 @@ function saveCategory() {
 function deleteCategory(index) {
     Swal.fire({
         title: "Are you sure?",
-        text : `Are you sure you want to delet it ?`,
+        text: `Are you sure you want to delet it ?`,
         showCancelButton: true,
         confirmButtonText: "Yes",
         cancelButtonText: "No"
@@ -199,6 +224,7 @@ function viewProducts(categoryName) {
 }
 
 window.onload = () => {
+    if (!checkAdminAuth()) return;
     loadCategories();
     document.querySelectorAll(".btn-view").forEach(btn => {
         btn.addEventListener("click", function () {
